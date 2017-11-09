@@ -24,3 +24,23 @@ const square = (x) =>{
 // arrow function expersion single sintax
 
 const squareTwo  = (x) => x * x;
+
+
+// arguments no longer bound
+
+const add = (a, b) =>{
+  return a + b;
+}
+
+// this key word not bound
+
+const user = {
+  name: 'Rayon Hunte',
+  cities: ['NewYork', 'Port of Spain', 'Dublin'],
+  printPlacesLived (){
+    this.cities.foreach((citie)=>{
+      console.log(this.name);
+      console.log(citie);
+    })  
+  }
+}
