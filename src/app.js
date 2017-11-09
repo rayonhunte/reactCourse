@@ -29,9 +29,9 @@ const user = {
   location: 'Guyana'
 }
 
-let userName = "mike";
-let userAge = "26";
-let userLocation = "Guyana";
+const userName = "mike";
+const userAge = "26";
+const userLocation = "Guyana";
 
 function getLocation(userLocation){
   if (userLocation){
@@ -47,5 +47,5 @@ const templateTwo = (
   </div>
 );
 
-var appRoot = document.getElementById("app");
+const appRoot = document.getElementById("app");
 ReactDOM.render(template, appRoot);

@@ -14,3 +14,13 @@ if (fullName) {
 }
 
 console.log(firstName);
+
+//arrow functions
+
+const square = (x) =>{
+  return x * 2;
+}
+
+// arrow function expersion single sintax
+
+const squareTwo  = (x) => x * x;
