@@ -37,10 +37,17 @@ const add = (a, b) =>{
 const user = {
   name: 'Rayon Hunte',
   cities: ['NewYork', 'Port of Spain', 'Dublin'],
-  printPlacesLived (){
-    this.cities.foreach((citie)=>{
-      console.log(this.name);
-      console.log(citie);
-    })  
+  printPlacesLived(){
+
+    // this.cities.foreach((city)=>{
+    //   console.log(this.name);
+    //   console.log(city);
+    // }) 
+
+    const CityMessages = this.cities,map((city)=>{
+      return city + '!';
+    });
+    return CityMessages;
+
   }
 }
