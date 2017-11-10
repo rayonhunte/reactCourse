@@ -24,6 +24,14 @@ var reset = function reset() {
   renderApp();
 };
 
+var onMakeDecision = function onMakeDecision() {
+  var randoNum = Math.floor(Math.random() * app.options.length);
+  var option = app.options[randoNum];
+  console.log(randoNum);
+  console.log(option);
+  alert(option);
+};
+
 var appRoot = document.getElementById("app");
 
 var renderApp = function renderApp() {
@@ -47,9 +55,9 @@ var renderApp = function renderApp() {
       app.options.length > 0 ? "Here Are your options" : 'No Options'
     ),
     React.createElement(
-      "p",
-      null,
-      app.options.length
+      "button",
+      { disabled: app.options.length === 0, onClick: onMakeDecision },
+      "What Should I Do ?"
     ),
     React.createElement(
       "button",
