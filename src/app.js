@@ -8,7 +8,7 @@ class IndecisionApp extends React.Component {
         <Header  title={title} subtitle={subtitle}/>
         <Action />
         <Options options={options}/>
-        <AddOption />
+        <AddOption  options={options}/>
       </div>
     );
   }
@@ -27,26 +27,38 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
+  handlePick(){
+    console.log("check this out")
+  }
   render(){
     return(
       <div>
-        <button>What Should I Do</button>
+        <button onClick={this.handlePick}>What Should I Do</button>
       </div>
     ) 
   }
 }
 
-class Options  extends React.Component {
-  render(){
+class Options extends React.Component {
+  // bind event handlers
+  constructor(props){
+    super(props)
+    this.handleRemoveAll = this.handleRemoveAll.bind(this);
+  }
+  
+  
+  handleRemoveAll() {
+    console.log("remove them all")
+  }
+  render() {
     return (
       <div>
-        <p>Options Go Here</p>
-        
+        <button onClick={this.handleRemoveAll}>Remove All</button>
         {
-          this.props.options.map((option, index)=>{
-            return <Option optionText={option} key={index}/>
-          }) 
-          }        
+          this.props.options.map((option, index) => {
+            return <Option optionText={option} key={index} />
+          })
+        }
       </div>
     );
   }
@@ -64,10 +76,24 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component{
+  constructor(props){
+    super(props)
+    this.handleAddOption = this.handleAddOption.bind(this);
+  }
+  handleAddOption(e){
+    e.preventDefault();
+    const option = e.target.elements.option.value.trim();
+    if(option){
+      console.log(this.props.options.push(option))
+    }
+  }
   render(){
     return (
       <div>
-        <p>AddOption Component here</p>
+        <form onSubmit={this.handleAddOption}>
+          <input type="text" name="option"/>
+          <button>Add Option</button>
+        </form>
       </div>
     );
   }
