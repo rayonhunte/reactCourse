@@ -65,5 +65,4 @@ const ryan = new Traveler('Ryan Hunte', 8, 'New York');
 console.log(me.getGretting());
 console.log(me.getDescription());
 console.log(rayon.hasMajor());
-
 console.log(ryan.getGretting());
