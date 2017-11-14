@@ -1,1 +1,3 @@
-console.log("app.js is running !!!");
+import  validator from 'validator';
+
+console.log(validator.isEmail("test@yahoo.com"))
