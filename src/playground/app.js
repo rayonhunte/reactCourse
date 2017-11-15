@@ -169,10 +169,4 @@ const Option = (props) =>{
 }
 
 
-// default component class props
-// IndecisionApp.defaultProps = {
-//   options: []
-// }
-
-
 ReactDOM.render(<IndecisionApp/>, document.getElementById('app'))
