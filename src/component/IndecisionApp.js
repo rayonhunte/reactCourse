@@ -3,10 +3,18 @@ import AddOption from './AddOption';
 import Options from './Options';
 import Action from './Action';
 import Header from './Header';
+import OptionModal from './OptionModal';
 
 export default class IndecisionApp extends React.Component {
   state = {
-    options: []
+    options: [],
+    selectedOption: undefined
+  }
+
+  //close modal reset state of selectedOption
+  closeModal = (e) => {
+    console.log("check this out")
+    this.setState(()=>({selectedOption: undefined}))
   }
 
   handleDeleteOptions = () => {
@@ -23,12 +31,13 @@ export default class IndecisionApp extends React.Component {
 
   handlePick = () => {
     const ranNum = Math.floor(Math.random() * this.state.options.length)
-    alert(this.state.options[ranNum]);
+    const option = this.state.options[ranNum];
+    this.setState(()=>({selectedOption: option}))
   }
 
   handleOption = (option) => {
     if (!option) {
-      return "Enter A Vaild Option !!!"
+      return "Enter A Valid Option !!!"
     } else if (this.state.options.indexOf(option) > -1) {
       return "Option Already exists"
     }
@@ -71,6 +80,9 @@ export default class IndecisionApp extends React.Component {
           handleDeleteOptions={this.handleDeleteOptions}
           handelDeleteOption={this.handelDeleteOption}/>
         <AddOption options={this.state.options} handleAddOption={this.handleOption}/>
+        <OptionModal 
+          selectedOption = {this.state.selectedOption} closeModal={this.closeModal}
+        />
       </div>
     );
   }

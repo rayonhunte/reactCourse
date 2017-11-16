@@ -16,6 +16,10 @@ module.exports = {
       query :{
         presets:['react']
       }
+    },{
+      test: /\.scss$/,
+      use: ['style-loader','css-loader','sass-loader']
+
     }]
   },
   devtool:'cheap-module-eval-source-map',
